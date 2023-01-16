@@ -1,6 +1,6 @@
 // import { useNavigate  } from 'react-router-dom';
 
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 // export const Login = () => {
 //   const navigate = useNavigate();
@@ -21,17 +21,18 @@ export const Login = () => {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
     
-  const handleEntrar = () => {
-    console.log('email', email);
-  };
-
   // const emailLength = email.length;
   const emailLength = useMemo(() => {
-    return email.length + 1;
+    return `useCallback:${email.length}`;
   }, [email.length]);
 
-  console.log(emailLength + 1);
+  const passwordLength = useCallback(() => {
+    console.log(`useCallback:${senha.length}`);
+  }, [senha.length]);
 
+  const handleEntrar = () => {
+    passwordLength();
+  };
 
   return (
     <>
