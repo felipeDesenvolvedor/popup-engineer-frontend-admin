@@ -1,6 +1,7 @@
 // import { useNavigate  } from 'react-router-dom';
 
 import React, { useCallback, useMemo, useRef, useState } from 'react';
+import { ButtonLogin } from './components/ButtonLogin';
 import {InputLogin} from './components/InputLogin';
 
 // export const Login = () => {
@@ -36,6 +37,10 @@ export const Login = () => {
     inputPasswordRef.current?.focus();
   };
 
+  const handleClickEntrar = () => {
+    console.log('Teste');
+  };
+
   return (
     <>
       <form>
@@ -45,9 +50,11 @@ export const Login = () => {
         <InputLogin type='text' label={'Email'} value={email} onChange={setEmail} onPressEnter={handleEntrar} />
         <InputLogin  type='password' label={'Senha'} value={senha} onChange={setSenha} ref={inputPasswordRef}/>
 
-        <button onClick={passwordLength} type='button'>
+        {/* <button onClick={passwordLength} type='button'>
             Entrar
-        </button>
+        </button> */}
+
+        <ButtonLogin type='button' onClick={handleClickEntrar}>Entrar</ButtonLogin>
       </form>
     </>
   );
