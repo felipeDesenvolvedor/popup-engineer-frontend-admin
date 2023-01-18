@@ -1,6 +1,7 @@
 // import { useNavigate  } from 'react-router-dom';
 
-import { useCallback, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useMemo, useRef, useState } from 'react';
+import {InputLogin} from './components/InputLogin';
 
 // export const Login = () => {
 //   const navigate = useNavigate();
@@ -32,24 +33,19 @@ export const Login = () => {
   }, [senha.length]);
 
   const handleEntrar = () => {
-    passwordLength();
+    inputPasswordRef.current?.focus();
   };
 
   return (
     <>
       <form>
         <p>Quantidade de caracteres no email {emailLength}</p>
-        <label>
-          <span>Email</span>
-          <input value={email} type='text' onKeyDown={e => e.key === 'Enter' ? inputPasswordRef.current?.focus() : undefined} onChange={e => setEmail(e.target.value)}/>
-        </label>
 
-        <label>
-          <span>Senha</span>
-          <input value={senha} type='password' ref={inputPasswordRef} onChange={e => setSenha(e.target.value)}/>
-        </label>
+     
+        <InputLogin type='text' label={'Email'} value={email} onChange={setEmail} onPressEnter={handleEntrar} />
+        <InputLogin  type='password' label={'Senha'} value={senha} onChange={setSenha} ref={inputPasswordRef}/>
 
-        <button onClick={handleEntrar} type='button'>
+        <button onClick={passwordLength} type='button'>
             Entrar
         </button>
       </form>
