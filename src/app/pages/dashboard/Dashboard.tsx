@@ -14,9 +14,9 @@ export const Dashboard = () => {
     <Drawer 
       variant='permanent' 
       anchor="left"
-      sx={{display: 'flex'}}>
-      <Box sx={{backgroundColor:'#f5f5f5', flexBasis:'100%'}}>
-        <MenuList>
+      sx={{display: 'flex', marginRight:'200px'}}>
+      <Box sx={{display:'flex', flexDirection:'column', backgroundColor:'#f5f5f5', flexBasis:'100%', alignItems:'center'}}>
+        <MenuList sx={{flexBasis:'100%'}}>
           <MenuItem>
             <ListItemIcon><WysiwygIcon /></ListItemIcon>
             <ListItemText>Modelos</ListItemText>
@@ -37,6 +37,8 @@ export const Dashboard = () => {
             <ListItemText>Públicos</ListItemText>
           </MenuItem>
         </MenuList>
+
+        <p>v.1</p>
       </Box>
     </Drawer>
   );
