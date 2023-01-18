@@ -47,8 +47,8 @@ export const Login = () => {
         <p>Quantidade de caracteres no email {emailLength}</p>
 
      
-        <InputLogin type='text' label={'Email'} value={email} onChange={setEmail} onPressEnter={handleEntrar} />
-        <InputLogin  type='password' label={'Senha'} value={senha} onChange={setSenha} ref={inputPasswordRef}/>
+        {/* <InputLogin type='text' label={'Email'} value={email} onChange={setEmail} onPressEnter={handleEntrar} />
+        <InputLogin  type='password' label={'Senha'} value={senha} onChange={setSenha} ref={inputPasswordRef}/> */}
 
         {/* <button onClick={passwordLength} type='button'>
             Entrar

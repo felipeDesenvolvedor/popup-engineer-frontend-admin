@@ -1,3 +1,8 @@
+import { Box, Drawer, ListItemIcon, ListItemText, MenuItem, MenuList } from '@mui/material';
+import WysiwygIcon from '@mui/icons-material/Wysiwyg';
+import IntegrationInstructionsIcon from '@mui/icons-material/IntegrationInstructions';
+import EmojiPeopleIcon from '@mui/icons-material/EmojiPeople';
+import GroupsIcon from '@mui/icons-material/Groups';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -6,13 +11,33 @@ export const Dashboard = () => {
   const counterRef = useRef({counter:0});
 
   return (
-    <>
-      <p>Dashboard</p>
-      <p>Contador: {counterRef.current.counter}</p>
+    <Drawer 
+      variant='permanent' 
+      anchor="left"
+      sx={{display: 'flex'}}>
+      <Box sx={{width:300, height:'100%', backgroundColor:'#f5f5f5', flexShrink: 0}}>
+        <MenuList>
+          <MenuItem>
+            <ListItemIcon><WysiwygIcon /></ListItemIcon>
+            <ListItemText>Modelos</ListItemText>
+          </MenuItem>
 
-      <button onClick={() => counterRef.current.counter++}>Somar</button>
-      <button onClick={() => console.log(counterRef.current.counter)}>Logar</button>
-      <Link to='/entrar'>Entrar</Link>
-    </>
+          <MenuItem>
+            <ListItemIcon><IntegrationInstructionsIcon /></ListItemIcon>
+            <ListItemText>Integrações</ListItemText>
+          </MenuItem>
+          
+          <MenuItem>
+            <ListItemIcon><EmojiPeopleIcon /></ListItemIcon>
+            <ListItemText>Leads</ListItemText>
+          </MenuItem>
+          
+          <MenuItem>
+            <ListItemIcon><GroupsIcon /></ListItemIcon>
+            <ListItemText>Públicos</ListItemText>
+          </MenuItem>
+        </MenuList>
+      </Box>
+    </Drawer>
   );
 };
