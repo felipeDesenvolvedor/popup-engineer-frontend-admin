@@ -15,7 +15,7 @@ export const Dashboard = () => {
       variant='permanent' 
       anchor="left"
       sx={{display: 'flex'}}>
-      <Box sx={{width:300, height:'100%', backgroundColor:'#f5f5f5', flexShrink: 0}}>
+      <Box sx={{backgroundColor:'#f5f5f5', flexBasis:'100%'}}>
         <MenuList>
           <MenuItem>
             <ListItemIcon><WysiwygIcon /></ListItemIcon>
