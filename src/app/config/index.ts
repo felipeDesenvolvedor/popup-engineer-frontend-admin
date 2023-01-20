@@ -1,5 +1,5 @@
-export * from './fetchConfig';
-export * from './defaultConfig';
+// export * from './fetchConfig';
+// export * from './defaultConfig';
 
 export const config = [
   {
