@@ -4,7 +4,6 @@ import { Grid } from '@mui/material';
 import { Box } from '@mui/system';
 import { Dashboard } from '../dashboard/Dashboard';
 import Paper from '@mui/material/Paper';
-import { ModelItem } from '../../shared/components';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -21,7 +20,7 @@ export const Models = () => {
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
           <Grid item xs={4}>
-            <Item><ModelItem /></Item>
+            <Item>xs=8</Item>
           </Grid>
           <Grid item xs={4}>
             <Item>xs=4</Item>
