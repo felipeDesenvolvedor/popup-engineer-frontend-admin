@@ -2,14 +2,16 @@
 import {createContext} from 'react';
 
 interface IUsuarioLogadoContextData {
-    nomeDoUsuario:string;
+    nomeDoUsuario?:string,
+    children?:React.ReactNode
 }
-const UsuarioLogadoContext = createContext<IUsuarioLogadoContextData>({} as IUsuarioLogadoContextData);
 
-export const UsuarioLogadoProvider: React.FC = ({children}) => {
-    return (
-        <UsuarioLogadoContext.Provider valeu={{nomDoUsuario:'Lucas'}}>
-            {children}
-        </UsuarioLogadoContext.Provider>
-    );
-}
+export const UsuarioLogadoContext = createContext<IUsuarioLogadoContextData>({} as IUsuarioLogadoContextData);
+
+export const UsuarioLogadoProvider: React.FC<IUsuarioLogadoContextData> = ({children}) => {
+  return (
+    <UsuarioLogadoContext.Provider value={{nomeDoUsuario:'Felipe'}}>
+      {children}
+    </UsuarioLogadoContext.Provider>
+  );
+};

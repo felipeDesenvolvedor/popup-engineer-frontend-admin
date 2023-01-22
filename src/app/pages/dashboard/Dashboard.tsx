@@ -5,11 +5,12 @@ import EmojiPeopleIcon from '@mui/icons-material/EmojiPeople';
 import GroupsIcon from '@mui/icons-material/Groups';
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { useUsuarioLogado } from '../../shared/hooks';
 
 export const Dashboard = () => {
 
   const counterRef = useRef({counter:0});
-
+  const  {nomeDoUsuario} = useUsuarioLogado();
   return (
     <Drawer 
       variant='permanent' 
@@ -38,7 +39,8 @@ export const Dashboard = () => {
           </MenuItem>
         </MenuList>
 
-        <p>v.1</p>
+        <p>v.1</p> 
+        <p>{nomeDoUsuario}</p>
       </Box>
     </Drawer>
   );

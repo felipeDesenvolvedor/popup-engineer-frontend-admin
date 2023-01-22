@@ -1,9 +1,12 @@
 import React from 'react';
 import { AppRoutes } from './routes/index';
+import { UsuarioLogadoProvider } from './shared/contexts';
 
 function App() {
   return (
-    <AppRoutes />
+    <UsuarioLogadoProvider>
+      <AppRoutes />
+    </UsuarioLogadoProvider>
   );
 }
 
