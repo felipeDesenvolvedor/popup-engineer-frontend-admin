@@ -10,7 +10,7 @@ import { useUsuarioLogado } from '../../shared/hooks';
 export const Dashboard = () => {
 
   const counterRef = useRef({counter:0});
-  const  {nomeDoUsuario} = useUsuarioLogado();
+  const  {nomeDoUsuario, logout} = useUsuarioLogado();
   return (
     <Drawer 
       variant='permanent' 
@@ -39,6 +39,7 @@ export const Dashboard = () => {
           </MenuItem>
         </MenuList>
 
+        <button onClick={logout}>Teste</button>
         <p>v.1</p> 
         <p>{nomeDoUsuario}</p>
       </Box>
