@@ -1,10 +1,11 @@
-import * as React from 'react';
+import React, {useState} from 'react';
 import { styled } from '@mui/material/styles';
 import { Grid } from '@mui/material';
 import { Box } from '@mui/system';
 import { Dashboard } from '../dashboard/Dashboard';
 import Paper from '@mui/material/Paper';
 import { ModelItem } from '../../shared/components/Model/ModelItem';
+import {config} from '../../config';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -14,18 +15,31 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
+interface IModel{
+  popupName: string, 
+  popupId:string,
+  imgPreview:string
+}
+
 export const Models = () => {
+  const [lista, setLista] = useState<IModel[]>(config);
+
+  const buildModels = () => {
+    return lista.map(listModel => {
+      return (
+        <React.Fragment key={listModel.popupId}>
+          <Grid item xs={4}><Item><ModelItem>{listModel.popupName}</ModelItem></Item></Grid>
+        </React.Fragment>
+      );
+    });
+  };
+
   return (
     <Box sx={{display:'flex'}}>
       <Dashboard />
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
-          <Grid item xs={4}>
-            <Item><ModelItem/></Item>
-          </Grid>
-          <Grid item xs={4}>
-            <Item><ModelItem/></Item>
-          </Grid>
+          {buildModels()}
         </Grid>
       </Box>
     </Box>
