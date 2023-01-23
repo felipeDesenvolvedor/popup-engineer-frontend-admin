@@ -2,9 +2,9 @@
 import {createContext, useCallback} from 'react';
 
 interface IUsuarioLogadoContextData {
-    nomeDoUsuario?:string,
-    children?:React.ReactNode,
-    logout:() => void;
+    nomeDoUsuario?:string;
+    children?:React.ReactNode;
+    logout?:() => void;
 }
 
 
