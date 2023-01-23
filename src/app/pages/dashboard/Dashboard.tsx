@@ -1,4 +1,4 @@
-import { Box, Drawer, keyframes, ListItemIcon, ListItemText, MenuItem, MenuList } from '@mui/material';
+import { Box, Drawer, keyframes, ListItem, ListItemIcon, ListItemText, MenuItem, MenuList } from '@mui/material';
 import WysiwygIcon from '@mui/icons-material/Wysiwyg';
 import IntegrationInstructionsIcon from '@mui/icons-material/IntegrationInstructions';
 import EmojiPeopleIcon from '@mui/icons-material/EmojiPeople';
@@ -7,11 +7,17 @@ import { useCallback, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useUsuarioLogado } from '../../shared/hooks';
 
+interface IListItem {
+ title:string;
+ isSelected:boolean;
+}
+
 export const Dashboard = () => {
 
   const counterRef = useRef({counter:0});
   const  {nomeDoUsuario, logout} = useUsuarioLogado();
-  const [lista, setLista] = useState<string[]>([]);
+  const [lista, setLista] = useState<IListItem[]>([]);
+  
   const handleInputKeyDow:React.KeyboardEventHandler<HTMLInputElement> = useCallback((e) => {
     if(e.key == 'Enter') {
       if(e.currentTarget.value.trim().length === 0) return;
@@ -20,15 +26,29 @@ export const Dashboard = () => {
       e.currentTarget.value = '';
       // setLista([...lista, e.currentTarget.value]);
       setLista((oldLista) => {
-        if(oldLista.includes(value)) return oldLista;
+        if(oldLista.some(Listitem => Listitem.title == value)) return oldLista;
 
-        return [...oldLista, value];
+        return [...oldLista, {
+          title: value,
+          isSelected:false
+        }];
       });
     }
   }, [lista]);
+
   const listItens = () => {
-    return lista.map(value => (
-      <li key={value}>{value}</li>
+    return lista.map(ListItem => (
+      <li key={ListItem.title}>{ListItem.title}<input type="checkbox" checked={ListItem.isSelected} id={ListItem.title} onChange={() => {
+        setLista(oldLista => {
+          return oldLista.map(oldListItem => {
+            const nemIsSelected = oldListItem.title === ListItem.title ? !oldListItem.isSelected : oldListItem.isSelected; 
+            return {
+              ...oldListItem,
+              isSelected: nemIsSelected
+            };
+          });
+        });
+      }}/></li>
     ));
   };
 
@@ -40,8 +60,9 @@ export const Dashboard = () => {
       <Box sx={{display:'flex', flexDirection:'column', backgroundColor:'#f5f5f5', flexBasis:'100%', alignItems:'center'}}>
         
         <p>List</p>
+        <p>Teste {lista.filter(ListItem => ListItem.isSelected).length}</p>
         <input onKeyDown={handleInputKeyDow} />
-
+        <p>{}</p>
         <ul>
           {/* {lista.map((value) => {
             return (
