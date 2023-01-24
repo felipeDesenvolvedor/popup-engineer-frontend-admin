@@ -18,8 +18,8 @@ export const config = [
     imgPreview:'path'
   },
   {
-    popupName: 'modelo 3', 
-    popupId:'3',
+    popupName: 'modelo 4', 
+    popupId:'4',
     imgPreview:'path'
   }
 ];
