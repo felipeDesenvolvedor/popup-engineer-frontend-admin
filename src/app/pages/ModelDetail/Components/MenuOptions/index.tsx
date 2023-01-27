@@ -5,6 +5,9 @@ import LabelIcon from '@mui/icons-material/Label';
 import TitleIcon from '@mui/icons-material/Title';
 import ShortTextIcon from '@mui/icons-material/ShortText';
 import ColorLensIcon from '@mui/icons-material/ColorLens';
+import AddIcon from '@mui/icons-material/Add';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 
 import React, { useCallback, useEffect, useState } from 'react';
 
@@ -20,7 +23,7 @@ export const MenuOptions = () => {
 
   const handleOpenMenu = useCallback((e:any) => {
     setAnchorEl((oldAnchorEl) => {
-      return oldAnchorEl ? null : e.target;
+      return oldAnchorEl ? null : e.currentTarget;
     });
   }, []);
 
@@ -38,8 +41,24 @@ export const MenuOptions = () => {
   
   return (
     <div>
-      <button id='basic-button' style={{marginBottom:'50px'}} onClick={handleOpenMenu}>{!openMenu ? 'Abrir': 'Fechar'}</button>
-      <Menu open={openMenu} anchorEl={anchorEl} onClose={handleOpenMenu} MenuListProps={{'aria-labelledby': 'basic-button'}}>
+      <button 
+        id='basic-button' 
+        style={{marginBottom:'50px'}}
+        aria-controls={openMenu ? 'basic-menu' : undefined}
+        aria-haspopup="true"
+        aria-expanded={openMenu ? 'true' : undefined} 
+        onClick={handleOpenMenu}
+      >
+        {!openMenu ? <ExpandMoreIcon />: <ExpandLessIcon />}
+      </button>
+
+      <Menu
+        id="basic-menu" 
+        open={openMenu} 
+        anchorEl={anchorEl} 
+        onClose={handleOpenMenu} 
+        MenuListProps={{'aria-labelledby': 'basic-button'}}
+      >
         {itens.map(iten => <MenuItem key={iten.text}>{iten.icon}</MenuItem>)}    
       </Menu>
     </div>
