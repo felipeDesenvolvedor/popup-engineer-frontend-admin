@@ -21,5 +21,10 @@ export const config = [
     popupName: 'modelo 4', 
     popupId:'4',
     imgPreview:'path'
+  },
+  {
+    popupName: 'modelo 5', 
+    popupId:'5',
+    imgPreview:'path'
   }
 ];
