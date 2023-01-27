@@ -1,4 +1,4 @@
-import { MenuItem, MenuList } from '@mui/material';
+import { MenuItem, MenuList, Menu } from '@mui/material';
 import ImageIcon from '@mui/icons-material/Image';
 import InputIcon from '@mui/icons-material/Input';
 import LabelIcon from '@mui/icons-material/Label';
@@ -6,7 +6,7 @@ import TitleIcon from '@mui/icons-material/Title';
 import ShortTextIcon from '@mui/icons-material/ShortText';
 import ColorLensIcon from '@mui/icons-material/ColorLens';
 
-import { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 interface IMenuOptions {
     icon:React.ReactNode;
@@ -14,14 +14,14 @@ interface IMenuOptions {
 }
 
 export const MenuOptions = () => {
-  const [open, setOpen ] = useState(false);
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const openMenu = Boolean(anchorEl);
   const [itens, setItens] = useState<IMenuOptions[]>([]);
 
-  const handleOpenManu = useCallback(() => {
-    setOpen(open => {
-      return open ? false : true;
+  const handleOpenMenu = useCallback((e:any) => {
+    setAnchorEl((oldAnchorEl) => {
+      return oldAnchorEl ? null : e.target;
     });
-
   }, []);
 
   useEffect(() => { 
@@ -37,11 +37,11 @@ export const MenuOptions = () => {
   
   
   return (
-    <>
-      <button onClick={handleOpenManu}>{open ? 'Abrir': 'Fechar'}</button>
-      <MenuList>
+    <div>
+      <button style={{marginBottom:'50px'}} onClick={handleOpenMenu}>{!openMenu ? 'Abrir': 'Fechar'}</button>
+      <Menu open={openMenu} anchorEl={anchorEl}>
         {itens.map(iten => <MenuItem key={iten.text}>{iten.icon}</MenuItem>)}    
-      </MenuList>
-    </>
+      </Menu>
+    </div>
   );
 };
