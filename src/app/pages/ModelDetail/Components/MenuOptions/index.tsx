@@ -38,8 +38,8 @@ export const MenuOptions = () => {
   
   return (
     <div>
-      <button style={{marginBottom:'50px'}} onClick={handleOpenMenu}>{!openMenu ? 'Abrir': 'Fechar'}</button>
-      <Menu open={openMenu} anchorEl={anchorEl}>
+      <button id='basic-button' style={{marginBottom:'50px'}} onClick={handleOpenMenu}>{!openMenu ? 'Abrir': 'Fechar'}</button>
+      <Menu open={openMenu} anchorEl={anchorEl} onClose={handleOpenMenu} MenuListProps={{'aria-labelledby': 'basic-button'}}>
         {itens.map(iten => <MenuItem key={iten.text}>{iten.icon}</MenuItem>)}    
       </Menu>
     </div>
