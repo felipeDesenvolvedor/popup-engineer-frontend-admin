@@ -1,4 +1,4 @@
-import { MenuItem, MenuList, Menu } from '@mui/material';
+import { MenuItem, MenuList, Menu, Box } from '@mui/material';
 import ImageIcon from '@mui/icons-material/Image';
 import InputIcon from '@mui/icons-material/Input';
 import LabelIcon from '@mui/icons-material/Label';
@@ -41,16 +41,16 @@ export const MenuOptions = () => {
   
   return (
     <div>
-      <button 
+      <Box 
         id='basic-button' 
-        style={{marginBottom:'50px'}}
+        style={{marginBottom:'50px', cursor:'pointer'}}
         aria-controls={openMenu ? 'basic-menu' : undefined}
         aria-haspopup="true"
         aria-expanded={openMenu ? 'true' : undefined} 
         onClick={handleOpenMenu}
       >
         {!openMenu ? <ExpandMoreIcon />: <ExpandLessIcon />}
-      </button>
+      </Box>
 
       <Menu
         id="basic-menu" 
