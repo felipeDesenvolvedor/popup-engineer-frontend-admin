@@ -11,9 +11,14 @@ interface IModeItem {
 export const ModelItem:React.FC<IModeItem> = ({children, style}) =>  {
   return(
     <div style={{...style, display:'flex'}}>
-      <ModelLayerOne><ModelImg /></ModelLayerOne>
+      <ModelLayerOne>
+        {/* <ModelImg /> */}
+        
+      </ModelLayerOne>
       {children}
-      <ModelLayerTwo><ModelForm/></ModelLayerTwo>
+      <ModelLayerTwo>
+        {/* <ModelForm/> */}
+      </ModelLayerTwo>
     </div>
   );
 };
