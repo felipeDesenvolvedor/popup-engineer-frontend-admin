@@ -9,8 +9,8 @@ export const ModelDetail = () => {
   return(
     <Box>
       <Dashboard />
-      <Box style={{display:'flex', height:'100vh', marginLeft:'200px'}}>
-        <Box sx={{flexGrow:'0.1'}}><MenuOptions /></Box>
+      <Box style={{display:'flex', height:'100vh', marginLeft:'176px'}}>
+        <Box sx={{flexGrow:'0'}}><MenuOptions /></Box>
         <Box sx={{flexGrow:'2'}}><ContainerPopUp /></Box>
       </Box>
     </Box>

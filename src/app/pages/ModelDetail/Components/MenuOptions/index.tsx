@@ -17,6 +17,7 @@ interface IMenuOptions {
 
 export const MenuOptions = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  // const openMenu = Boolean(anchorEl);
   const openMenu = Boolean(anchorEl);
   const [itens, setItens] = useState<IMenuOptions[]>([]);
 
