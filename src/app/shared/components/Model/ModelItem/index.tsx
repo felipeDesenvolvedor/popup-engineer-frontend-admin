@@ -5,7 +5,7 @@ import { ModelLayerTwo } from './ModelLayerTwo';
 
 interface IModeItem {
   children?:React.ReactNode;
-  style:React.CSSProperties
+  style?:React.CSSProperties
 }
 
 export const ModelItem:React.FC<IModeItem> = ({children, style}) =>  {
