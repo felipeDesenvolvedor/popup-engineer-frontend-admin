@@ -5,6 +5,7 @@ import LabelIcon from '@mui/icons-material/Label';
 import TitleIcon from '@mui/icons-material/Title';
 import ShortTextIcon from '@mui/icons-material/ShortText';
 import ColorLensIcon from '@mui/icons-material/ColorLens';
+import ListItemIcon from '@mui/material/ListItemIcon';
 
 import React, {useEffect, useRef, useState } from 'react';
 
@@ -26,6 +27,8 @@ export const MenuOptions = () => {
       {icon:<ShortTextIcon/>, text:'Texto'},
       {icon:<ColorLensIcon/>, text:'Overlay'}
     ]);
+
+    console.log(anchorEl);
   }, []);
   
   
@@ -37,16 +40,13 @@ export const MenuOptions = () => {
         aria-controls='basic-menu'
         aria-haspopup="true"
         aria-expanded='true'
+        ref={anchorEl}
       >
       </Box>
 
-      <Menu
-        id="basic-menu" 
-        open={true}
-        anchorEl={anchorEl}
-      >
-        {itens.map(iten => <MenuItem key={iten.text}>{iten.icon}</MenuItem>)}    
-      </Menu>
+      <MenuList>
+        {itens.map(iten => <MenuItem key={iten.text}><ListItemIcon>{iten.icon}</ListItemIcon>{iten.text}</MenuItem>)}    
+      </MenuList>
     </div>
   );
 };
