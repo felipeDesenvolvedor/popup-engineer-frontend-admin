@@ -5,10 +5,8 @@ import LabelIcon from '@mui/icons-material/Label';
 import TitleIcon from '@mui/icons-material/Title';
 import ShortTextIcon from '@mui/icons-material/ShortText';
 import ColorLensIcon from '@mui/icons-material/ColorLens';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 
-import React, { useCallback, useEffect, useState } from 'react';
+import React, {useEffect, useRef, useState } from 'react';
 
 interface IMenuOptions {
     icon:React.ReactNode;
@@ -16,16 +14,8 @@ interface IMenuOptions {
 }
 
 export const MenuOptions = () => {
-  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-  // const openMenu = Boolean(anchorEl);
-  const openMenu = Boolean(anchorEl);
   const [itens, setItens] = useState<IMenuOptions[]>([]);
-
-  const handleOpenMenu = useCallback((e:any) => {
-    setAnchorEl((oldAnchorEl) => {
-      return oldAnchorEl ? null : e.currentTarget;
-    });
-  }, []);
+  const anchorEl = useRef<HTMLDivElement>(null);
 
   useEffect(() => { 
     setItens([
@@ -44,20 +34,16 @@ export const MenuOptions = () => {
       <Box 
         id='basic-button' 
         style={{marginBottom:'50px', cursor:'pointer'}}
-        aria-controls={openMenu ? 'basic-menu' : undefined}
+        aria-controls='basic-menu'
         aria-haspopup="true"
-        aria-expanded={openMenu ? 'true' : undefined} 
-        onClick={handleOpenMenu}
+        aria-expanded='true'
       >
-        {!openMenu ? <ExpandMoreIcon />: <ExpandLessIcon />}
       </Box>
 
       <Menu
         id="basic-menu" 
-        open={openMenu} 
-        anchorEl={anchorEl} 
-        onClose={handleOpenMenu} 
-        MenuListProps={{'aria-labelledby': 'basic-button'}}
+        open={true}
+        anchorEl={anchorEl}
       >
         {itens.map(iten => <MenuItem key={iten.text}>{iten.icon}</MenuItem>)}    
       </Menu>
