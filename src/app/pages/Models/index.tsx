@@ -51,7 +51,7 @@ export const Models = () => {
 
   return (
     <Box sx={{display:'flex'}}>
-      <Dashboard />
+      <Dashboard openMenuInitial={true}/>
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
           {buildModels()}

@@ -8,8 +8,8 @@ export const ModelDetail = () => {
   const {id} = useParams();
   return(
     <Box>
-      <Dashboard />
-      <Box style={{display:'flex', height:'100vh', marginLeft:'176px'}}>
+      <Dashboard openMenuInitial={true}/>
+      <Box style={{display:'flex', height:'100vh'}}>
         <Box sx={{flexGrow:'0'}}><MenuOptions /></Box>
         <Box sx={{flexGrow:'2'}}><ContainerPopUp /></Box>
       </Box>

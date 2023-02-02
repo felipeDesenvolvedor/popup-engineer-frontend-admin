@@ -2,6 +2,8 @@ import { Box, Drawer, keyframes, ListItem, ListItemIcon, ListItemText, MenuItem,
 import WysiwygIcon from '@mui/icons-material/Wysiwyg';
 import IntegrationInstructionsIcon from '@mui/icons-material/IntegrationInstructions';
 import EmojiPeopleIcon from '@mui/icons-material/EmojiPeople';
+import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
+import MenuIcon from '@mui/icons-material/Menu';
 import GroupsIcon from '@mui/icons-material/Groups';
 import { useCallback, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -12,8 +14,13 @@ interface IListItem {
  isSelected:boolean;
 }
 
-export const Dashboard = () => {
+interface IDashboard {
+  openMenuInitial?:boolean
+}
 
+export const Dashboard:React.FC<IDashboard> = ({openMenuInitial}) => {
+
+  const [openMenu, setOpenMenu] = useState(openMenuInitial);
   const counterRef = useRef({counter:0});
   const  {nomeDoUsuario, logout} = useUsuarioLogado();
   const [lista, setLista] = useState<IListItem[]>([]);
@@ -53,52 +60,39 @@ export const Dashboard = () => {
   };
 
   return (
-    <Drawer 
-      variant='permanent' 
-      anchor="left"
-      sx={{display: 'flex', marginRight:'200px'}}>
-      <Box sx={{display:'flex', flexDirection:'column', backgroundColor:'#f5f5f5', flexBasis:'100%', alignItems:'center'}}>
-        
-        <p>List</p>
-        <p>Teste {lista.filter(ListItem => ListItem.isSelected).length}</p>
-        <input onKeyDown={handleInputKeyDow} />
-        <p>{}</p>
-        <ul>
-          {/* {lista.map((value) => {
-            return (
-              <li key={value}>{value}</li>
-            );
-          })} */}
+    <div style={{position:'relative'}}>
+      <Box onClick={() => setOpenMenu(!openMenu)} style={{position:'absolute', left:'150px'}}>{openMenu ? <KeyboardArrowLeftIcon /> : <MenuIcon/>}</Box>
+      <Drawer 
+        variant='persistent' 
+        anchor="left"
+        sx={{display: 'flex', marginRight:'200px'}}
+        open={openMenu}
+      >
+        <Box sx={{display:'flex', flexDirection:'column', backgroundColor:'#f5f5f5', flexBasis:'100%', alignItems:'center'}}>
+          <MenuList sx={{flexBasis:'100%'}}>
+            <MenuItem>
+              <ListItemIcon><WysiwygIcon /></ListItemIcon>
+              <ListItemText>Modelos</ListItemText>
+            </MenuItem>
 
-          {listItens()}
-        </ul>
-
-        <MenuList sx={{flexBasis:'100%'}}>
-          <MenuItem>
-            <ListItemIcon><WysiwygIcon /></ListItemIcon>
-            <ListItemText>Modelos</ListItemText>
-          </MenuItem>
-
-          <MenuItem>
-            <ListItemIcon><IntegrationInstructionsIcon /></ListItemIcon>
-            <ListItemText>Integrações</ListItemText>
-          </MenuItem>
+            <MenuItem>
+              <ListItemIcon><IntegrationInstructionsIcon /></ListItemIcon>
+              <ListItemText>Integrações</ListItemText>
+            </MenuItem>
           
-          <MenuItem>
-            <ListItemIcon><EmojiPeopleIcon /></ListItemIcon>
-            <ListItemText>Leads</ListItemText>
-          </MenuItem>
+            <MenuItem>
+              <ListItemIcon><EmojiPeopleIcon /></ListItemIcon>
+              <ListItemText>Leads</ListItemText>
+            </MenuItem>
           
-          <MenuItem>
-            <ListItemIcon><GroupsIcon /></ListItemIcon>
-            <ListItemText>Públicos</ListItemText>
-          </MenuItem>
-        </MenuList>
-
-        <button onClick={logout}>Teste</button>
-        <p>v.1</p> 
-        <p>{nomeDoUsuario}</p>
-      </Box>
-    </Drawer>
+            <MenuItem>
+              <ListItemIcon><GroupsIcon /></ListItemIcon>
+              <ListItemText>Públicos</ListItemText>
+            </MenuItem>
+          </MenuList>
+          <p>v.1</p> 
+        </Box>
+      </Drawer>
+    </div>
   );
 };
