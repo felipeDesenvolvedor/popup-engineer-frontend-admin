@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { styled } from '@mui/material/styles';
 import { Grid, Link } from '@mui/material';
 import { Box } from '@mui/system';
@@ -7,6 +7,8 @@ import Paper from '@mui/material/Paper';
 import { ModelItem } from '../../shared/components/Model/ModelItem';
 import {config} from '../../config';
 import { useNavigate } from 'react-router';
+import { ControllersModels } from '../../controllers/ControllersModels';
+import { IModel } from '../../interfaces/IModel';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -16,21 +18,20 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-interface IModel{
-  popupName: string, 
-  popupId:string,
-  imgPreview:string
-}
+const controllersModels = new ControllersModels();
+console.log();
 
 export const Models = () => {
-  const [lista, setLista] = useState<IModel[]>(config);
+  const [lista, setLista] = useState<IModel[]>([]);
   const navigate = useNavigate();
 
   const handleRedirectModel = (idModel:any) => {
-
-    console.log('Teste');
     navigate(`/modelo/${idModel}`);
   };
+
+  useEffect(() => {
+    setLista(controllersModels.buscarModels());
+  }, []);
 
   const buildModels = () => {
     return lista.map(listModel => {
