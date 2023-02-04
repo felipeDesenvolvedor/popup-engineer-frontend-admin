@@ -58,7 +58,7 @@ export const Dashboard:React.FC<IDashboard> = ({openMenuInitial, setOpen}) => {
 
   return (
     <div style={{position:'relative'}}>
-      <Box onClick={() => setOpen(!openMenuInitial)} style={{position:'absolute', left:openMenuInitial ? '238px' : '90px'}}>{openMenuInitial ? <KeyboardArrowLeftIcon /> : <MenuIcon/>}</Box>
+      <Box onClick={() => setOpen(!openMenuInitial)} style={{position:'absolute', transition:'left 300ms', left:openMenuInitial ? '238px' : '90px'}}>{openMenuInitial ? <KeyboardArrowLeftIcon /> : <MenuIcon/>}</Box>
       <Drawer 
         variant='persistent' 
         anchor="left"
