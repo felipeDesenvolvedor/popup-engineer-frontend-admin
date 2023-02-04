@@ -8,19 +8,16 @@ import GroupsIcon from '@mui/icons-material/Groups';
 import { useCallback, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useUsuarioLogado } from '../../shared/hooks';
+import { IDashboard } from '../../interfaces/IDashboard';
 
 interface IListItem {
  title:string;
  isSelected:boolean;
 }
 
-interface IDashboard {
-  openMenuInitial?:boolean
-}
+export const Dashboard:React.FC<IDashboard> = ({openMenuInitial, setOpen}) => {
 
-export const Dashboard:React.FC<IDashboard> = ({openMenuInitial}) => {
-
-  const [openMenu, setOpenMenu] = useState(openMenuInitial);
+  
   const counterRef = useRef({counter:0});
   const  {nomeDoUsuario, logout} = useUsuarioLogado();
   const [lista, setLista] = useState<IListItem[]>([]);
@@ -61,12 +58,12 @@ export const Dashboard:React.FC<IDashboard> = ({openMenuInitial}) => {
 
   return (
     <div style={{position:'relative'}}>
-      <Box onClick={() => setOpenMenu(!openMenu)} style={{position:'absolute', left:'150px'}}>{openMenu ? <KeyboardArrowLeftIcon /> : <MenuIcon/>}</Box>
+      <Box onClick={() => setOpen(!openMenuInitial)} style={{position:'absolute', left:openMenuInitial ? '238px' : '90px'}}>{openMenuInitial ? <KeyboardArrowLeftIcon /> : <MenuIcon/>}</Box>
       <Drawer 
         variant='persistent' 
         anchor="left"
-        sx={{display: 'flex', marginRight:'200px'}}
-        open={openMenu}
+        sx={{display: 'flex', transition:'margin-right 300ms', marginRight: openMenuInitial ? '142px' : '0'}}
+        open={openMenuInitial}
       >
         <Box sx={{display:'flex', flexDirection:'column', backgroundColor:'#f5f5f5', flexBasis:'100%', alignItems:'center'}}>
           <MenuList sx={{flexBasis:'100%'}}>

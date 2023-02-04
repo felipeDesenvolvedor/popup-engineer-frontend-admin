@@ -23,6 +23,7 @@ console.log();
 
 export const Models = () => {
   const [lista, setLista] = useState<IModel[]>([]);
+  const [openMenu, setOpenMenu] = useState(true);
   const navigate = useNavigate();
 
   const handleRedirectModel = (idModel:any) => {
@@ -52,7 +53,7 @@ export const Models = () => {
 
   return (
     <Box sx={{display:'flex'}}>
-      <Dashboard openMenuInitial={true}/>
+      <Dashboard openMenuInitial={openMenu} setOpen={setOpenMenu}/>
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={2}>
           {buildModels()}
