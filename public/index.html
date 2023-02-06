@@ -43,7 +43,7 @@
       
       window.addEventListener('DOMContentLoaded', function() {
         let draggable = document.querySelectorAll( '.item-draggable');
-        let draggableTarget = document.querySelector('#item-target');
+        let draggableTarget = document.querySelectorAll('.item-target');
         
         let listener = (element, event, callback) => {
           element.addEventListener(event, callback)
@@ -57,19 +57,21 @@
         })
 
 
-        // events for element target
-        listener(draggableTarget, 'drop', event => {
-          event.preventDefault()
-          let draggable = document.querySelector(event.dataTransfer.getData('text/plain'))
-          event.target.appendChild(draggable)
-        })
-
-        listener(draggableTarget, 'dragenter', event => {
-          event.preventDefault()
-        })
-
-        listener(draggableTarget, 'dragover', event => {
-          event.preventDefault()
+        draggableTarget.forEach(el => {
+          // events for element target
+          listener(el, 'drop', event => {
+            event.preventDefault()
+            let draggable = document.querySelector(event.dataTransfer.getData('text/plain'))
+            event.target.appendChild(draggable)
+          })
+  
+          listener(el, 'dragenter', event => {
+            event.preventDefault()
+          })
+  
+          listener(el, 'dragover', event => {
+            event.preventDefault()
+          })
         })
       })
       
