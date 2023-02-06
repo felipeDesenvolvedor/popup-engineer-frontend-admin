@@ -39,5 +39,38 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script>
+      
+      window.addEventListener('DOMContentLoaded', function() {
+        let draggable = document.querySelector( '#item-draggable');
+        let draggableTarget = document.querySelector('#item-target');
+        
+        let listener = (element, event, callback) => {
+          element.addEventListener(event, callback)
+        }
+        
+        // event for element draggable
+        listener(draggable, 'dragstart', event => {
+          event.dataTransfer.setData('text/plain', event.target.id);
+        });
+
+
+        // events for element target
+        listener(draggableTarget, 'drop', event => {
+          event.preventDefault()
+          event.target.appendChild(draggable)
+        })
+
+        listener(draggableTarget, 'dragenter', event => {
+          event.preventDefault()
+        })
+
+        listener(draggableTarget, 'dragover', event => {
+          event.preventDefault()
+        })
+      })
+      
+
+    </script>
   </body>
 </html>
