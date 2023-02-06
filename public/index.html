@@ -42,7 +42,7 @@
     <script>
       
       window.addEventListener('DOMContentLoaded', function() {
-        let draggable = document.querySelector( '#item-draggable');
+        let draggable = document.querySelectorAll( '.item-draggable');
         let draggableTarget = document.querySelector('#item-target');
         
         let listener = (element, event, callback) => {
@@ -50,14 +50,17 @@
         }
         
         // event for element draggable
-        listener(draggable, 'dragstart', event => {
-          event.dataTransfer.setData('text/plain', event.target.id);
-        });
+        draggable.forEach(el => {
+          listener(el, 'dragstart', event => {
+            event.dataTransfer.setData('text/plain', `#${event.target.id}`);
+          });
+        })
 
 
         // events for element target
         listener(draggableTarget, 'drop', event => {
           event.preventDefault()
+          let draggable = document.querySelector(event.dataTransfer.getData('text/plain'))
           event.target.appendChild(draggable)
         })
 
