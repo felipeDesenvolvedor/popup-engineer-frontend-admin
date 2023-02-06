@@ -61,7 +61,13 @@
           // events for element target
           listener(el, 'drop', event => {
             event.preventDefault()
-            let draggable = document.querySelector(event.dataTransfer.getData('text/plain'))
+            let draggable = document.querySelector(event.dataTransfer.getData('text/plain')).querySelector('div');
+            if(!draggable) {
+              alert('Não é possivel adicionar mais de 3 elementos !')
+              return
+            }
+
+            draggable.style.display='block';
             event.target.appendChild(draggable)
           })
   
