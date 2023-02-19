@@ -1,4 +1,4 @@
-import { MenuItem, MenuList, Menu, Box } from '@mui/material';
+import { MenuItem, MenuList, Box } from '@mui/material';
 import ImageIcon from '@mui/icons-material/Image';
 import InputIcon from '@mui/icons-material/Input';
 import LabelIcon from '@mui/icons-material/Label';
@@ -18,6 +18,14 @@ export const MenuOptions = () => {
   const [itens, setItens] = useState<IMenuOptions[]>([]);
   const anchorEl = useRef<HTMLDivElement>(null);
 
+  const stylesMenuOptions = {
+    box: {
+      marginBottom:'50px', 
+      cursor:'pointer'
+    }
+  };
+
+
   useEffect(() => { 
     setItens([
       {icon:<ImageIcon/>, text:'Imagen'},
@@ -27,8 +35,6 @@ export const MenuOptions = () => {
       {icon:<ShortTextIcon/>, text:'Texto'},
       {icon:<ColorLensIcon/>, text:'Overlay'}
     ]);
-
-    console.log(anchorEl);
   }, []);
   
   
@@ -36,14 +42,13 @@ export const MenuOptions = () => {
     <div>
       <Box 
         id='basic-button' 
-        style={{marginBottom:'50px', cursor:'pointer'}}
+        style={stylesMenuOptions.box}
         aria-controls='basic-menu'
         aria-haspopup="true"
         aria-expanded='true'
         ref={anchorEl}
       >
       </Box>
-
       <MenuList>
         {itens.map(iten => <MenuItem key={iten.text}><ListItemIcon>{iten.icon}</ListItemIcon>{iten.text}</MenuItem>)}    
       </MenuList>
