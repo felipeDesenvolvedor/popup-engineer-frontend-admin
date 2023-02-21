@@ -4,6 +4,7 @@ import { ModelImg } from './ModelImg';
 import { ModelLayerOne } from './ModelLayerOne';
 import { ModelLayerTwo } from './ModelLayerTwo';
 import { IConfigPopUp } from '../../../../interfaces/IConfigPopUp';
+import TextField from '@mui/material/TextField';
 
 
 interface IModeItem {
@@ -31,9 +32,6 @@ export const ModelItem:React.FC<IModeItem> = ({children, style}) =>  {
       left:'50%', 
       transform:'translate(-50%, -50%)',
       layerOne:{
-        width:'50%'
-      },
-      layerTwo:{
         height:'100%',
         width:'50%',
         backgroundImage:'url(https://www.guiaviagensbrasil.com/imagens/praia-costa-itacare-ba-9599.jpg)',
@@ -41,8 +39,24 @@ export const ModelItem:React.FC<IModeItem> = ({children, style}) =>  {
         backgroundRepeat:'no-repeat',
         backgroundPosition:'center bottom'
       },
-      elementsInformation:'layerOne'
+      layerTwo:{
+        width:'50%'
+      },
+      elementsInformation:'layerTwo'
     }
+  };
+
+  const SwitchLayer = () => {
+    return (
+      <>
+        <h2>Titulo do Popup</h2>
+        <h3>Subtitulo do popup</h3>
+        <p>Teexto do popup</p>
+        <form>
+          <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+        </form> 
+      </>
+    );
   };
 
   
@@ -52,9 +66,11 @@ export const ModelItem:React.FC<IModeItem> = ({children, style}) =>  {
 
         <div style={{...popUpStyles.popup, display:'flex'}}>
           <ModelLayerOne styles={popUpStyles.popup.layerOne}>
+            {popUpStyles.popup.elementsInformation === 'layerOne' && <SwitchLayer />}
           </ModelLayerOne>
           {children}
           <ModelLayerTwo styles={popUpStyles.popup.layerTwo}>
+            {popUpStyles.popup.elementsInformation === 'layerTwo' && <SwitchLayer />}
           </ModelLayerTwo>
         </div>
       </Box>
