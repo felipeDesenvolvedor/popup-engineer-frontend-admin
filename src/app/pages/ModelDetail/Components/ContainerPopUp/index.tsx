@@ -4,15 +4,43 @@ import { Box } from '@mui/system';
 import { ModelItem } from '../../../../shared/components/Model/ModelItem';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import KeyboardArrowRightSharpIcon from '@mui/icons-material/KeyboardArrowRightSharp';
+
+const stylesButtonClose = {
+  position:'absolute', 
+  right:'20px', 
+  top:'20px'
+};
+
+const stylesButtonSave = {
+  position:'absolute', 
+  right:'0', 
+  bottom:'-18px', 
+  backgroundColor:'#008000'
+};
+
+const stylesArrow = {
+  box: {
+    position:'absolute', 
+    right:'120px', 
+    bottom:'-15px'
+  },
+  left: {
+    backgroundColor:'rgb(25, 118, 210)', 
+    borderRadius:'3px'
+  },
+  rigth: {
+    backgroundColor:'rgb(25, 118, 210)', 
+    borderRadius:'3px'
+  }
+};
 
 export const ContainerPopUp = () => {
   return (
     <>
       <ModelItem>
-        <Button style={{position:'absolute', right:'20px', top:'20px'}}><CloseIcon /></Button>
-        <Button style={{position:'absolute', right:'0', bottom:'-18px', backgroundColor:'#008000'}} variant="contained">Salvar</Button>
-        <Box style={{position:'absolute', right:'120px', bottom:'-15px'}} ><KeyboardArrowLeftIcon style={{backgroundColor:'rgb(25, 118, 210)', borderRadius:'3px'}}/> <KeyboardArrowRightIcon style={{backgroundColor:'rgb(25, 118, 210)', borderRadius:'3px'}}/></Box>
+        <Button style={{...stylesButtonClose}}><CloseIcon /></Button>
+        <Button style={{...stylesButtonSave}} variant="contained">Salvar</Button>
+        <Box style={{...stylesArrow.box}}><KeyboardArrowLeftIcon style={{...stylesArrow.left}}/> <KeyboardArrowRightIcon style={{...stylesArrow.rigth}}/></Box>
 
         {/* <div style={{position:'absolute', width:'400px', height:'400px', backgroundColor:'red', right:'540px', top:'100px'}} className='item-target' id="item-target-1">element draggable target</div>
         <div style={{position:'absolute', width:'400px', height:'400px', backgroundColor:'red', right:'120px', top:'100px'}} className='item-target' id="item-target-2">element draggable target</div>
