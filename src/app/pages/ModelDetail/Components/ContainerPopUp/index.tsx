@@ -9,12 +9,12 @@ import KeyboardArrowRightSharpIcon from '@mui/icons-material/KeyboardArrowRightS
 export const ContainerPopUp = () => {
   return (
     <>
-      <ModelItem style={{height:'100%', width:'100%', position:'absolute', top:'50%', left:'50%', transform:'translate(-50%, -50%)'}}>
+      <ModelItem>
         <Button style={{position:'absolute', right:'20px', top:'20px'}}><CloseIcon /></Button>
         <Button style={{position:'absolute', right:'20px', bottom:'20px', backgroundColor:'#008000'}} variant="contained">Salvar</Button>
         <Box style={{position:'absolute', right:'140px', bottom:'20px'}} ><KeyboardArrowLeftIcon style={{backgroundColor:'rgb(25, 118, 210)', borderRadius:'3px'}}/> <KeyboardArrowRightIcon style={{backgroundColor:'rgb(25, 118, 210)', borderRadius:'3px'}}/></Box>
 
-        <div style={{position:'absolute', width:'400px', height:'400px', backgroundColor:'red', right:'540px', top:'100px'}} className='item-target' id="item-target-1">element draggable target</div>
+        {/* <div style={{position:'absolute', width:'400px', height:'400px', backgroundColor:'red', right:'540px', top:'100px'}} className='item-target' id="item-target-1">element draggable target</div>
         <div style={{position:'absolute', width:'400px', height:'400px', backgroundColor:'red', right:'120px', top:'100px'}} className='item-target' id="item-target-2">element draggable target</div>
         <div style={{position:'absolute', right:'140px', top:'200px'}} className="item-draggable" id="item-draggable-1" draggable="true">
           element draggable
@@ -25,7 +25,7 @@ export const ContainerPopUp = () => {
           element draggable
           <div id='item-3' style={{display:'none'}}>element copy 3</div>
           <div id='item-4' style={{display:'none'}}>element copy 4</div>
-        </div>
+        </div> */}
       </ModelItem>
     </>
   );

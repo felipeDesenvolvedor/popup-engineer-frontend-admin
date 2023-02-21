@@ -15,40 +15,46 @@ export const ModelItem:React.FC<IModeItem> = ({children, style}) =>  {
   
   const popUpStyles:IConfigPopUp = {
     overlay: {
-      width:'100%',
       height:'100%',
       padding:'30px',
-      backgroundColor:'rgba(0,0,0, 0.5)',
+      backgroundColor:'rgba(26, 18, 18, 0.5)',
       position: 'static',
-      top:''
+      top:'0'
     },
     popup: {
-      width:string,
-      height:string,
-      color:string,
-      backgroundColor:string,
-      position:string,
-      left:string,
-      top:string,
-      transform:string,
-      layerOne:ILayerConfig
-      layerTwo:ILayerConfig
-      elementsInformation:string
+      color:'#000',
+      backgroundColor:'#fff',
+      height:'100%', 
+      width:'100%', 
+      position:'absolute', 
+      top:'50%', 
+      left:'50%', 
+      transform:'translate(-50%, -50%)',
+      layerOne:{
+        width:'50%'
+      },
+      layerTwo:{
+        height:'100%',
+        width:'50%',
+        backgroundImage:'url(https://www.guiaviagensbrasil.com/imagens/praia-costa-itacare-ba-9599.jpg)',
+        backgroundSize:'cover',
+        backgroundRepeat:'no-repeat',
+        backgroundPosition:'center bottom'
+      },
+      elementsInformation:'layerOne'
     }
   };
+
   
   return(
-    <Box style={{backgroundColor:'rgba(26, 18, 18, 0.5)', height:'100%', padding:'30px'}}>
-      <Box style={{backgroundColor:'#fff', position:'relative', height:'100%'}}>
+    <Box style={{...popUpStyles.overlay}}>
+      <Box style={{position:'relative', height:'100%'}}>
 
-        <div style={{...style, display:'flex'}}>
-          <ModelLayerOne>
-            {/* <ModelImg /> */}
-        
+        <div style={{...popUpStyles.popup, display:'flex'}}>
+          <ModelLayerOne styles={popUpStyles.popup.layerOne}>
           </ModelLayerOne>
           {children}
-          <ModelLayerTwo>
-            {/* <ModelForm/> */}
+          <ModelLayerTwo styles={popUpStyles.popup.layerTwo}>
           </ModelLayerTwo>
         </div>
       </Box>

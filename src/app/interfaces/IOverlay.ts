@@ -1,5 +1,5 @@
 export interface IOverlay {
-    width:string;
+    width?:string;
     height:string;
     backgroundColor:string;
     position:string;

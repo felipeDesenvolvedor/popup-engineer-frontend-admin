@@ -1,4 +1,4 @@
-interface ILayerConfig {
+export interface ILayerConfig {
     width?:string,
     height?:string
     position?:string,
