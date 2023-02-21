@@ -11,8 +11,8 @@ export const ContainerPopUp = () => {
     <>
       <ModelItem>
         <Button style={{position:'absolute', right:'20px', top:'20px'}}><CloseIcon /></Button>
-        <Button style={{position:'absolute', right:'20px', bottom:'20px', backgroundColor:'#008000'}} variant="contained">Salvar</Button>
-        <Box style={{position:'absolute', right:'140px', bottom:'20px'}} ><KeyboardArrowLeftIcon style={{backgroundColor:'rgb(25, 118, 210)', borderRadius:'3px'}}/> <KeyboardArrowRightIcon style={{backgroundColor:'rgb(25, 118, 210)', borderRadius:'3px'}}/></Box>
+        <Button style={{position:'absolute', right:'0', bottom:'-18px', backgroundColor:'#008000'}} variant="contained">Salvar</Button>
+        <Box style={{position:'absolute', right:'120px', bottom:'-15px'}} ><KeyboardArrowLeftIcon style={{backgroundColor:'rgb(25, 118, 210)', borderRadius:'3px'}}/> <KeyboardArrowRightIcon style={{backgroundColor:'rgb(25, 118, 210)', borderRadius:'3px'}}/></Box>
 
         {/* <div style={{position:'absolute', width:'400px', height:'400px', backgroundColor:'red', right:'540px', top:'100px'}} className='item-target' id="item-target-1">element draggable target</div>
         <div style={{position:'absolute', width:'400px', height:'400px', backgroundColor:'red', right:'120px', top:'100px'}} className='item-target' id="item-target-2">element draggable target</div>
