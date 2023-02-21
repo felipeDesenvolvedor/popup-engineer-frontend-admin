@@ -4,4 +4,5 @@ export interface IOverlay {
     backgroundColor:string;
     position:string;
     top:string;
+    padding?:string;
 }
