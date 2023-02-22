@@ -1,3 +1,4 @@
+import {useEffect} from 'react';
 import { Button } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { Box } from '@mui/system';
@@ -34,13 +35,19 @@ const stylesArrow = {
   }
 };
 
-export const ContainerPopUp = () => {
+interface IContainerPopUp {
+  children:JSX.Element[];
+}
+
+export const ContainerPopUp:React.FC<IContainerPopUp> = ({children}) => {
   return (
     <>
       <ModelItem>
         <Button style={{...stylesButtonClose}}><CloseIcon /></Button>
         <Button style={{...stylesButtonSave}} variant="contained">Salvar</Button>
         <Box style={{...stylesArrow.box}}><KeyboardArrowLeftIcon style={{...stylesArrow.left}}/> <KeyboardArrowRightIcon style={{...stylesArrow.rigth}}/></Box>
+
+        {children}
 
         {/* <div style={{position:'absolute', width:'400px', height:'400px', backgroundColor:'red', right:'540px', top:'100px'}} className='item-target' id="item-target-1">element draggable target</div>
         <div style={{position:'absolute', width:'400px', height:'400px', backgroundColor:'red', right:'120px', top:'100px'}} className='item-target' id="item-target-2">element draggable target</div>

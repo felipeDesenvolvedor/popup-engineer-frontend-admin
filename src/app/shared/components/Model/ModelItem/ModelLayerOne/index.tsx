@@ -9,7 +9,6 @@ export const ModelLayerOne:React.FC<IModelLayerOne> = ({children, styles}) => {
   return (
     <div style={{...styles}}>
       <div>{children}</div>
-      <div>ModelLayerOne</div>
     </div>
   );
 };

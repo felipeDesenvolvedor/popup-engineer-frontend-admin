@@ -10,7 +10,6 @@ export const ModelLayerTwo: React.FC<IModelLayerTwo> = ({children, styles}) => {
   return (
     <div style={{...styles}}>
       <div>{children}</div>
-      <div>ModelLayerTwo</div>
     </div>
   );
 };
