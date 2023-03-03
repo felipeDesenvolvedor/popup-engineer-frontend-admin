@@ -5,6 +5,7 @@ import { ModelLayerOne } from './ModelLayerOne';
 import { ModelLayerTwo } from './ModelLayerTwo';
 import { IConfigPopUp } from '../../../../interfaces/IConfigPopUp';
 import TextField from '@mui/material/TextField';
+import CSS from 'csstype';
 
 
 interface IModeItem {
@@ -14,33 +15,48 @@ interface IModeItem {
 
 export const ModelItem:React.FC<IModeItem> = ({children, style}) =>  {
   
-  const popUpStyles:IConfigPopUp = {
+  const overlarDefinition: CSS.Properties = {
+    height:'100%',
+    padding:'30px',
+    backgroundColor:'rgba(26, 18, 18, 0.5)',
+    position: 'static',
+    top:'0'
+  };
+  const popupDefinition:CSS.Properties = {
+    color:'#000',
+    backgroundColor:'#fff',
+    height:'100%', 
+    width:'100%', 
+    position:'absolute', 
+    top:'50%', 
+    left:'50%', 
+    transform:'translate(-50%, -50%)'
+  };
+
+  const layerOneDefinitions:CSS.Properties = {
+    width:'50%'
+  };
+
+  const layerTwoDefinitions:CSS.Properties = {
+    height:'100%',
+    width:'50%',
+    backgroundImage:'url(https://www.guiaviagensbrasil.com/imagens/praia-costa-itacare-ba-9599.jpg)',
+    backgroundSize:'cover',
+    backgroundRepeat:'no-repeat',
+    backgroundPosition:'center bottom'
+  };
+
+  const popUpStyles = {
     overlay: {
-      height:'100%',
-      padding:'30px',
-      backgroundColor:'rgba(26, 18, 18, 0.5)',
-      position: 'static',
-      top:'0'
+      ...overlarDefinition
     },
     popup: {
-      color:'#000',
-      backgroundColor:'#fff',
-      height:'100%', 
-      width:'100%', 
-      position:'absolute', 
-      top:'50%', 
-      left:'50%', 
-      transform:'translate(-50%, -50%)',
+      ...popupDefinition,
       layerOne:{
-        width:'50%'
+        ...layerOneDefinitions
       },
       layerTwo:{
-        height:'100%',
-        width:'50%',
-        backgroundImage:'url(https://www.guiaviagensbrasil.com/imagens/praia-costa-itacare-ba-9599.jpg)',
-        backgroundSize:'cover',
-        backgroundRepeat:'no-repeat',
-        backgroundPosition:'center bottom'
+        ...layerTwoDefinitions
       },
       elementsInformation:'layerOne'
     }
@@ -56,11 +72,11 @@ export const ModelItem:React.FC<IModeItem> = ({children, style}) =>  {
 
   
   return(
-    <Box style={{...popUpStyles.overlay}}>
-      <Box style={{position:'relative', height:'100%'}}>
+    <Box sx={{...popUpStyles.overlay}}>
+      <Box sx={{position:'relative', height:'100%'}}>
 
-        <div style={{...popUpStyles.popup, display:'flex'}}>
-          <ModelLayerOne styles={popUpStyles.popup.layerOne}>
+        <div style={{...popUpStyles.popup}}>
+          <ModelLayerOne styles={{...popUpStyles.popup.layerOne}}>
             {popUpStyles.popup.elementsInformation === 'layerOne' && <SwitchLayer />}
           </ModelLayerOne>
           <ModelLayerTwo styles={popUpStyles.popup.layerTwo}>

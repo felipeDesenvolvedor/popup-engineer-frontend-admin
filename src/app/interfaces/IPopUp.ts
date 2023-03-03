@@ -1,12 +1,12 @@
 export interface ILayerConfig {
     width?:string,
-    height?:string
-    position?:string,
+    height?:string,
+    position:string,
     backgroundImage?:string,
     backgroundColor?:string,
     backgroundSize?:string,
     backgroundRepeat?:string,
-    backgroundPosition?:string
+    backgroundPosition?:string,
     transform?:string,
     left?:string,
     top?:string,

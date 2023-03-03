@@ -43,9 +43,9 @@ export const ContainerPopUp:React.FC<IContainerPopUp> = ({children}) => {
   return (
     <>
       <ModelItem>
-        <Button style={{...stylesButtonClose}}><CloseIcon /></Button>
-        <Button style={{...stylesButtonSave}} variant="contained">Salvar</Button>
-        <Box style={{...stylesArrow.box}}><KeyboardArrowLeftIcon style={{...stylesArrow.left}}/> <KeyboardArrowRightIcon style={{...stylesArrow.rigth}}/></Box>
+        <Box sx={{...stylesButtonClose}}><CloseIcon /></Box>
+        <Box sx={{...stylesButtonSave}}><Button variant="contained">Salvar</Button></Box>
+        <Box sx={{...stylesArrow.box}}><KeyboardArrowLeftIcon style={{...stylesArrow.left}}/> <KeyboardArrowRightIcon style={{...stylesArrow.rigth}}/></Box>
 
         {children}
 
