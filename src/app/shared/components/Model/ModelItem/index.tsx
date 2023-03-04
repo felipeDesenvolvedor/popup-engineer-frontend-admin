@@ -33,19 +33,6 @@ export const ModelItem:React.FC<IModeItem> = ({children, style}) =>  {
     transform:'translate(-50%, -50%)'
   };
 
-  const layerOneDefinitions:CSS.Properties = {
-    width:'50%'
-  };
-
-  const layerTwoDefinitions:CSS.Properties = {
-    height:'100%',
-    width:'50%',
-    backgroundImage:'url(https://www.guiaviagensbrasil.com/imagens/praia-costa-itacare-ba-9599.jpg)',
-    backgroundSize:'cover',
-    backgroundRepeat:'no-repeat',
-    backgroundPosition:'center bottom'
-  };
-
   const popUpStyles = {
     overlay: {
       ...overlarDefinition
@@ -53,10 +40,15 @@ export const ModelItem:React.FC<IModeItem> = ({children, style}) =>  {
     popup: {
       ...popupDefinition,
       layerOne:{
-        ...layerOneDefinitions
+        width:'50%',
       },
       layerTwo:{
-        ...layerTwoDefinitions
+        height:'100%',
+        width:'50%',
+        backgroundImage:'url(https://www.guiaviagensbrasil.com/imagens/praia-costa-itacare-ba-9599.jpg)',
+        backgroundSize:'cover',
+        backgroundRepeat:'no-repeat',
+        backgroundPosition:'center bottom'
       },
       elementsInformation:'layerOne'
     }
@@ -79,7 +71,7 @@ export const ModelItem:React.FC<IModeItem> = ({children, style}) =>  {
           <ModelLayerOne styles={{...popUpStyles.popup.layerOne}}>
             {popUpStyles.popup.elementsInformation === 'layerOne' && <SwitchLayer />}
           </ModelLayerOne>
-          <ModelLayerTwo styles={popUpStyles.popup.layerTwo}>
+          <ModelLayerTwo styles={{...popUpStyles.popup.layerTwo}}>
             {popUpStyles.popup.elementsInformation === 'layerTwo' && <SwitchLayer />}
           </ModelLayerTwo>
         </div>

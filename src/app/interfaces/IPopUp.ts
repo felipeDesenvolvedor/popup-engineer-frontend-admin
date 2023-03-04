@@ -1,16 +1,4 @@
-export interface ILayerConfig {
-    width?:string,
-    height?:string,
-    position:string,
-    backgroundImage?:string,
-    backgroundColor?:string,
-    backgroundSize?:string,
-    backgroundRepeat?:string,
-    backgroundPosition?:string,
-    transform?:string,
-    left?:string,
-    top?:string,
-}
+import { ILayerConfig } from "./ILayerConfig"
 
 export interface IPopUp {
     width:string,
@@ -21,7 +9,7 @@ export interface IPopUp {
     left:string,
     top:string,
     transform:string,
-    layerOne:ILayerConfig
-    layerTwo:ILayerConfig
+    layerOne:ILayerConfig,
+    layerTwo:ILayerConfig,
     elementsInformation:string
 }

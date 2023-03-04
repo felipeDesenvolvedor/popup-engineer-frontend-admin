@@ -1,4 +1,4 @@
-import { ILayerConfig } from '../../../../../interfaces/IPopUp';
+import { ILayerConfig } from '../../../../../interfaces/ILayerConfig';
 import CSS from 'csstype';
 
 
@@ -8,13 +8,14 @@ interface IModelLayerOne {
 }
 
 export const ModelLayerOne:React.FC<IModelLayerOne> = ({children, styles}) => {
-
-  const stylesDefinition:CSS.Properties = {
+  console.log(styles);
+  const stylesProperties:CSS.Properties = {
     ...styles
   };
+  console.log(stylesProperties);
 
   return (
-    <div style={{...stylesDefinition}}>
+    <div style={{...stylesProperties}}>
       <div>{children}</div>
     </div>
   );

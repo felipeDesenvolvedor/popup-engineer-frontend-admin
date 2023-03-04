@@ -1,5 +1,5 @@
 
-import ILayerConfig from '../../../../../interfaces/IPopUp/ILayerConfig';
+import { ILayerConfig } from '../../../../../interfaces/ILayerConfig'; 
 
 interface IModelLayerTwo {
   children:React.ReactNode;
@@ -7,8 +7,9 @@ interface IModelLayerTwo {
 }
 
 export const ModelLayerTwo: React.FC<IModelLayerTwo> = ({children, styles}) => {
+  console.log(styles);
   return (
-    <div style={{...styles}}>
+    <div style={styles}>
       <div>{children}</div>
     </div>
   );
