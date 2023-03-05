@@ -25,6 +25,10 @@ export const MenuOptions = () => {
     }
   };
 
+  const handleDragStart = (event) => {
+    console.log(event);
+    event.dataTransfer.setData('text/plain', `#${event.target.id}`);
+  };
 
   useEffect(() => { 
     setItens([
@@ -50,7 +54,18 @@ export const MenuOptions = () => {
       >
       </Box>
       <MenuList>
-        {itens.map(iten => <MenuItem key={iten.text}><ListItemIcon>{iten.icon}</ListItemIcon>{iten.text}</MenuItem>)}    
+        {itens.map((iten, index) => {
+          return (
+            <MenuItem key={iten.text}>
+              <ListItemIcon>{iten.icon}</ListItemIcon>
+              {iten.text}
+              <div style={{position:'absolute', width:'100%', height:'100%', zIndex:'3000'}} id={`item-draggable-${index}`} className='item-draggable' draggable="true" onDragStart={handleDragStart}>
+                <div id='item-1' style={{display:'none'}}>element copy 1</div>
+                <div id='item-2' style={{display:'none'}}>element copy 2</div>
+              </div>
+            </MenuItem>
+          );
+        })}    
       </MenuList>
     </div>
   );

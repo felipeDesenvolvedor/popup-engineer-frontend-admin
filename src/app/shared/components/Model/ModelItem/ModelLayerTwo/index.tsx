@@ -7,9 +7,17 @@ interface IModelLayerTwo {
 }
 
 export const ModelLayerTwo: React.FC<IModelLayerTwo> = ({children, styles}) => {
-  console.log(styles);
+  
+  const handleDragEnter = (event:any) => {
+    event.preventDefault();
+  };
+  
+  const handleDragOver = (event:any) => {
+    event.preventDefault();
+  };
+
   return (
-    <div style={styles}>
+    <div className='item-target' id="item-target-2" style={styles} onDragOver={handleDragOver} onDragEnter={handleDragEnter}>
       <div>{children}</div>
     </div>
   );
