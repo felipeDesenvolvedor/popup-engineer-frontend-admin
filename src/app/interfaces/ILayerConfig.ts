@@ -1,7 +1,7 @@
 export interface ILayerConfig {
     width?:string,
     height?:string,
-    position?: relative | initial | inherit | unset | static | absolute | fixed | sticky,
+    position?: 'relative' | 'initial' | 'inherit' | 'unset' | 'static' | 'absolute' | 'fixed' | 'sticky',
     backgroundImage?:string,
     backgroundColor?:string,
     backgroundSize?:string,
