@@ -39,49 +39,5 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-    <script>
-      
-      window.addEventListener('DOMContentLoaded', function() {
-        let draggable = document.querySelectorAll( '.item-draggable');
-        let draggableTarget = document.querySelectorAll('.item-target');
-        
-        let listener = (element, event, callback) => {
-          element.addEventListener(event, callback)
-        }
-        
-        // event for element draggable
-        draggable.forEach(el => {
-          listener(el, 'dragstart', event => {
-            event.dataTransfer.setData('text/plain', `#${event.target.id}`);
-          });
-        })
-
-
-        draggableTarget.forEach(el => {
-          // events for element target
-          listener(el, 'drop', event => {
-            event.preventDefault()
-            let draggable = document.querySelector(event.dataTransfer.getData('text/plain')).querySelector('div');
-            if(!draggable) {
-              alert('Não é possivel adicionar mais de 3 elementos !')
-              return
-            }
-
-            draggable.style.display='block';
-            event.target.appendChild(draggable)
-          })
-  
-          listener(el, 'dragenter', event => {
-            event.preventDefault()
-          })
-  
-          listener(el, 'dragover', event => {
-            event.preventDefault()
-          })
-        })
-      })
-      
-
-    </script>
   </body>
 </html>

@@ -16,8 +16,13 @@ export const ModelLayerTwo: React.FC<IModelLayerTwo> = ({children, styles}) => {
     event.preventDefault();
   };
 
+  const handleDrop = (event:any) => {
+    console.log(event);
+    event.preventDefault();
+  };
+
   return (
-    <div className='item-target' id="item-target-2" style={styles} onDragOver={handleDragOver} onDragEnter={handleDragEnter}>
+    <div className='item-target' id="item-target-2" style={styles} onDrop={handleDrop} onDragOver={handleDragOver} onDragEnter={handleDragEnter}>
       <div>{children}</div>
     </div>
   );

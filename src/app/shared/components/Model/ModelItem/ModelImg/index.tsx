@@ -1,5 +1,5 @@
-export const ModelImg = () => {
+export const Imagen = () => {
   return (
-    <div>img</div>
+    <div>Imagennnn</div>
   );
 };

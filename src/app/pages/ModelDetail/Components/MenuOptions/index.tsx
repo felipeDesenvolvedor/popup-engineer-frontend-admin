@@ -25,9 +25,9 @@ export const MenuOptions = () => {
     }
   };
 
-  const handleDragStart = (event) => {
+  const handleDragStart = (event:any) => {
     console.log(event);
-    event.dataTransfer.setData('text/plain', `#${event.target.id}`);
+    event.dataTransfer.setData('text/plain', `${event.target.id}`);
   };
 
   useEffect(() => { 
@@ -35,7 +35,8 @@ export const MenuOptions = () => {
       {icon:<ImageIcon/>, text:'Imagen'},
       {icon:<LabelIcon/>, text:'Label'},
       {icon:<InputIcon/>, text:'Input'},
-      {icon:<TitleIcon/>, text:'Título'},
+      {icon:<TitleIcon/>, text:'Titulo'},
+      {icon:<TitleIcon/>, text:'SubTitulo'},
       {icon:<ShortTextIcon/>, text:'Texto'},
       {icon:<ColorLensIcon/>, text:'Overlay'}
     ]);
@@ -59,7 +60,7 @@ export const MenuOptions = () => {
             <MenuItem key={iten.text}>
               <ListItemIcon>{iten.icon}</ListItemIcon>
               {iten.text}
-              <div style={{position:'absolute', width:'100%', height:'100%', zIndex:'3000'}} id={`item-draggable-${index}`} className='item-draggable' draggable="true" onDragStart={handleDragStart}>
+              <div style={{position:'absolute', width:'100%', height:'100%', zIndex:'3000'}} id={iten.text} className='item-draggable' draggable="true" onDragStart={handleDragStart}>
                 <div id='item-1' style={{display:'none'}}>element copy 1</div>
                 <div id='item-2' style={{display:'none'}}>element copy 2</div>
               </div>

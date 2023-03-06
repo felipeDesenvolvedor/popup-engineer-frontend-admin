@@ -1,6 +1,5 @@
 import { Box } from '@mui/material';
 import { ModelForm } from './ModelForm';
-import { ModelImg } from './ModelImg';
 import { ModelLayerOne } from './ModelLayerOne';
 import { ModelLayerTwo } from './ModelLayerTwo';
 import { IConfigPopUp } from '../../../../interfaces/IConfigPopUp';
@@ -10,10 +9,11 @@ import CSS from 'csstype';
 
 interface IModeItem {
   children?:React.ReactNode;
-  style?:React.CSSProperties
+  style?:React.CSSProperties;
+  setElements?:(elements:JSX.Element[]) => void;
 }
 
-export const ModelItem:React.FC<IModeItem> = ({children, style}) =>  {
+export const ModelItem:React.FC<IModeItem> = ({children, style, setElements}) =>  {
   
   const overlarDefinition: CSS.Properties = {
     height:'100%',
@@ -69,7 +69,7 @@ export const ModelItem:React.FC<IModeItem> = ({children, style}) =>  {
       <Box sx={{position:'relative', height:'100%'}}>
 
         <div style={{...popUpStyles.popup}}>
-          <ModelLayerOne styles={{...popUpStyles.popup.layerOne}}>
+          <ModelLayerOne setElements={setElements} styles={{...popUpStyles.popup.layerOne}}>
             {popUpStyles.popup.elementsInformation === 'layerOne' && <SwitchLayer />}
           </ModelLayerOne>
           <ModelLayerTwo styles={{...popUpStyles.popup.layerTwo}}>
