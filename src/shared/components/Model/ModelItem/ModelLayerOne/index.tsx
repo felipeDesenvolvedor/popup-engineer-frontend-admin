@@ -11,16 +11,16 @@ import { Input } from '../ModelInput';
 interface IModelLayerOne {
   children:React.ReactNode;
   styles?: ILayerConfig;
-  setElements?:(elements:JSX.Element[]) => void;
+  setElements:(elements:JSX.Element[]) => void;
 }
 
 const elements = {
-  Imagen:<Imagen/>,
-  Titulo:<Titulo/>,
-  SubTitulo:<SubTitulo/>,
-  Texto:<Texto/>,
-  Label:<Label/>,
-  Input:<Input/>,
+  'Imagen':<Imagen/>,
+  'Titulo':<Titulo/>,
+  'SubTitulo':<SubTitulo/>,
+  'Texto':<Texto/>,
+  'Label':<Label/>,
+  'Input':<Input/>,
 
 };
 
@@ -40,7 +40,11 @@ export const ModelLayerOne:React.FC<IModelLayerOne> = ({children, styles, setEle
   const handleDrop = (event:any) => {
     console.log(event?.dataTransfer.getData('text/plain'));
     event.preventDefault();
-    setElements((element) => [...element, elements[event?.dataTransfer.getData('text/plain')]]);
+    setElements((element:JSX.Element[]) => {
+      const key = event?.dataTransfer.getData('text/plain') as keyof typeof elements;
+      const elementsType:JSX.Element[] = [...element, elements[key]];
+      return elementsType;
+    });
   };
 
   return (

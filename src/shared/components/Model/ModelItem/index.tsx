@@ -10,7 +10,7 @@ import CSS from 'csstype';
 interface IModeItem {
   children?:React.ReactNode;
   style?:React.CSSProperties;
-  setElements?:(elements:JSX.Element[]) => void;
+  setElements:(elements:JSX.Element[]) => void;
 }
 
 export const ModelItem:React.FC<IModeItem> = ({children, style, setElements}) =>  {

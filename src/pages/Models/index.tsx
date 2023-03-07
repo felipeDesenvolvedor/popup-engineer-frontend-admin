@@ -40,7 +40,7 @@ export const Models = () => {
         <React.Fragment key={listModel.popupId}>
           <Grid item xs={4}>
             <Item onClick={() => handleRedirectModel(listModel.popupId)}>
-              <ModelItem>
+              <ModelItem setElements={() => console.log('')}>
                 {'color="inherit"'}
                 {listModel.popupName}
               </ModelItem>
