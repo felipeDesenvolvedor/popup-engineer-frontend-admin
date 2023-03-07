@@ -2,13 +2,13 @@ import React, {useEffect, useState} from 'react';
 import { styled } from '@mui/material/styles';
 import { Grid, Link } from '@mui/material';
 import { Box } from '@mui/system';
-import { Dashboard } from '../dashboard/Dashboard';
+import { Dashboard } from 'pages/dashboard/Dashboard';
 import Paper from '@mui/material/Paper';
-import { ModelItem } from '../../shared/components/Model/ModelItem';
-import {config} from '../../config';
+import { ModelItem } from 'shared/components/Model/ModelItem';
+import {config} from 'config';
 import { useNavigate } from 'react-router';
-import { ControllersModels } from '../../controllers/ControllersModels';
-import { IModel } from '../../interfaces/IModel';
+import { ControllersModels } from 'controllers/ControllersModels';
+import { IModel } from 'interfaces/IModel';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',

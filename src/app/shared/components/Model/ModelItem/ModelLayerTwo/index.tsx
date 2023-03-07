@@ -1,5 +1,5 @@
 
-import { ILayerConfig } from '../../../../../interfaces/ILayerConfig'; 
+import { ILayerConfig } from 'interfaces/ILayerConfig'; 
 
 interface IModelLayerTwo {
   children:React.ReactNode;

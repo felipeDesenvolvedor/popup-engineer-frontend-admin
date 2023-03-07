@@ -1,4 +1,4 @@
-import { ILayerConfig } from '../../../../../interfaces/ILayerConfig';
+import { ILayerConfig } from 'interfaces/ILayerConfig';
 import CSS from 'csstype';
 import { Imagen } from '../ModelImg';
 import { SubTitulo } from '../ModelSubtitulo';

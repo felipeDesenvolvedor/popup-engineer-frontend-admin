@@ -1,10 +1,10 @@
 import { Box } from '@mui/system';
-import { Dashboard } from '../dashboard/Dashboard';
+import { Dashboard } from 'pages/dashboard/Dashboard';
 import { MenuOptions } from './Components/MenuOptions';
 import { ContainerPopUp } from './Components/ContainerPopUp';
 import { useState, useEffect } from 'react';
-import { IDashboard } from '../../interfaces/IDashboard';
-import { ModelForm } from '../../shared/components/Model/ModelItem/ModelForm';
+import { IDashboard } from 'interfaces/IDashboard';
+import { ModelForm } from 'shared/components/Model/ModelItem/ModelForm';
 
 export const ModelDetail = () => {
   const [openMenu, setOpenMenu] = useState(true);

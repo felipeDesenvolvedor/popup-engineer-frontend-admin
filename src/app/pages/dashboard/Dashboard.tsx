@@ -7,8 +7,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import GroupsIcon from '@mui/icons-material/Groups';
 import { useCallback, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useUsuarioLogado } from '../../shared/hooks';
-import { IDashboard } from '../../interfaces/IDashboard';
+import { useUsuarioLogado } from 'shared/hooks';
+import { IDashboard } from 'interfaces/IDashboard';
 
 interface IListItem {
  title:string;

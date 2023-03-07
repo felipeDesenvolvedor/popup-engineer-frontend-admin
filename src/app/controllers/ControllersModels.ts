@@ -1,4 +1,4 @@
-import { Models } from '../models/Models';
+import { Models } from 'models/Models';
 
 export class ControllersModels {
 

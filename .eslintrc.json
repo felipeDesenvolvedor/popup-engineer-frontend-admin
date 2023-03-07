@@ -6,8 +6,19 @@
     "extends": [
         "eslint:recommended",
         "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended"
+        "plugin:@typescript-eslint/recommended",
+        "airbnb", 
+        "prettier", 
+        "plugin:jsx-a11y/recommended"
     ],
+    "settings": {
+        "import/resolver": {
+          "node": {
+            "paths": ["src/app"],
+            "extensions": [".js", ".jsx", ".ts", ".tsx"]
+          }
+        }
+      },
     "overrides": [
     ],
     "parser": "@typescript-eslint/parser",

@@ -1,7 +1,7 @@
 import { Button } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import { Box } from '@mui/system';
-import { ModelItem } from '../../../../shared/components/Model/ModelItem';
+import { ModelItem } from 'shared/components/Model/ModelItem';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 

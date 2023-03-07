@@ -2,7 +2,7 @@ import { Box } from '@mui/material';
 import { ModelForm } from './ModelForm';
 import { ModelLayerOne } from './ModelLayerOne';
 import { ModelLayerTwo } from './ModelLayerTwo';
-import { IConfigPopUp } from '../../../../interfaces/IConfigPopUp';
+import { IConfigPopUp } from 'interfaces/IConfigPopUp';
 import TextField from '@mui/material/TextField';
 import CSS from 'csstype';
 
