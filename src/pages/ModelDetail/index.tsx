@@ -5,10 +5,12 @@ import { ContainerPopUp } from './Components/ContainerPopUp';
 import { useState, useEffect } from 'react';
 import { IDashboard } from 'interfaces/IDashboard';
 import { ModelForm } from 'shared/components/Model/ModelItem/ModelForm';
+import { Input } from 'shared/components/Model/ModelItem/ModelInput';
 
 export const ModelDetail = () => {
   const [openMenu, setOpenMenu] = useState(true);
-  const [elements, setElements] = useState<JSX.Element[]>([]);
+  const elementInitial = <Input/>;
+  const [elements, setElements] = useState<JSX.Element[]>([elementInitial]);
 
   const stylesModelDetail = {
     box:{

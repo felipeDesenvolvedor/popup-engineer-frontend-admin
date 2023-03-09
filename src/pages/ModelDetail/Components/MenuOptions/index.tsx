@@ -26,7 +26,6 @@ export const MenuOptions = () => {
   };
 
   const handleDragStart = (event:any) => {
-    console.log(event);
     event.dataTransfer.setData('text/plain', `${event.target.id}`);
   };
 

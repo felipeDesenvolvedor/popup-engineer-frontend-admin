@@ -19,7 +19,6 @@ const Item = styled(Paper)(({ theme }) => ({
 }));
 
 const controllersModels = new ControllersModels();
-console.log();
 
 export const Models = () => {
   const [lista, setLista] = useState<IModel[]>([]);

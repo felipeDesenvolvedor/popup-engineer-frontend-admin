@@ -9,12 +9,12 @@ import { Input } from '../ModelInput';
 
 
 interface IModelLayerOne {
-  children:React.ReactNode;
+  children:React.ReactNode[];
   styles?: ILayerConfig;
   setElements:(elements:JSX.Element[]) => void;
 }
 
-const elements = {
+const elementsDraggable = {
   'Imagen':<Imagen/>,
   'Titulo':<Titulo/>,
   'SubTitulo':<SubTitulo/>,
@@ -38,13 +38,15 @@ export const ModelLayerOne:React.FC<IModelLayerOne> = ({children, styles, setEle
   };
 
   const handleDrop = (event:any) => {
-    console.log(event?.dataTransfer.getData('text/plain'));
     event.preventDefault();
-    setElements((element:JSX.Element[]) => {
-      const key = event?.dataTransfer.getData('text/plain') as keyof typeof elements;
-      const elementsType:JSX.Element[] = [...element, elements[key]];
+
+    const buildElements = (element:JSX.Element[]):JSX.Element[] => {
+      const key = event?.dataTransfer.getData('text/plain') as keyof typeof elementsDraggable;
+      const elementsType:JSX.Element[] = [...element, elementsDraggable[key]];
       return elementsType;
-    });
+    };
+    
+    setElements((element:JSX.Element[]) => buildElements(element));
   };
 
   return (

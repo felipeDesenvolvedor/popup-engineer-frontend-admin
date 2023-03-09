@@ -35,7 +35,7 @@ const stylesArrow = {
 };
 
 interface IContainerPopUp {
-  children:JSX.Element[];
+  children:React.ReactNode[];
   setElements:(elements:JSX.Element[]) => void;
 }
 
@@ -48,19 +48,6 @@ export const ContainerPopUp:React.FC<IContainerPopUp> = ({children, setElements}
         <Box sx={{...stylesArrow.box}}><KeyboardArrowLeftIcon style={{...stylesArrow.left}}/> <KeyboardArrowRightIcon style={{...stylesArrow.rigth}}/></Box>
 
         {children}
-
-        {/* <div style={{position:'absolute', width:'400px', height:'400px', backgroundColor:'red', right:'540px', top:'100px'}} className='item-target' id="item-target-1">element draggable target</div>
-        <div style={{position:'absolute', width:'400px', height:'400px', backgroundColor:'red', right:'120px', top:'100px'}} className='item-target' id="item-target-2">element draggable target</div>
-        <div style={{position:'absolute', right:'140px', top:'200px'}} className="item-draggable" id="item-draggable-1" draggable="true">
-          element draggable
-          <div id='item-1' style={{display:'none'}}>element copy 1</div>
-          <div id='item-2' style={{display:'none'}}>element copy 2</div>
-        </div>
-        <div style={{position:'absolute', right:'140px', top:'400px'}} className="item-draggable" id="item-draggable-2" draggable="true">
-          element draggable
-          <div id='item-3' style={{display:'none'}}>element copy 3</div>
-          <div id='item-4' style={{display:'none'}}>element copy 4</div>
-        </div> */}
       </ModelItem>
     </>
   );

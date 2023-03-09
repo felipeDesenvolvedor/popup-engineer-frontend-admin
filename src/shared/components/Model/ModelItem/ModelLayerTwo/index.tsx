@@ -17,7 +17,6 @@ export const ModelLayerTwo: React.FC<IModelLayerTwo> = ({children, styles}) => {
   };
 
   const handleDrop = (event:any) => {
-    console.log(event);
     event.preventDefault();
   };
 

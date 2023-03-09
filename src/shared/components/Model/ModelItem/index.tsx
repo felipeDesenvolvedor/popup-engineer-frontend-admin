@@ -8,7 +8,7 @@ import CSS from 'csstype';
 
 
 interface IModeItem {
-  children?:React.ReactNode;
+  children?:React.ReactNode[];
   style?:React.CSSProperties;
   setElements:(elements:JSX.Element[]) => void;
 }

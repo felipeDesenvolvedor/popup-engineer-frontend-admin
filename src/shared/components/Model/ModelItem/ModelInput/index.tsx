@@ -1,3 +1,10 @@
+import { TextField } from '@mui/material';
+
 export const Input = () => {
-  return (<p>Input</p>);
+  return ( <TextField
+    id="standard-search"
+    label="Search field"
+    type="search"
+    variant="standard"
+  />);
 };
