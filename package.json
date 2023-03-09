@@ -12,6 +12,7 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.0.2",
     "react-scripts": "5.0.1",
+    "styled-components": "^5.3.8",
     "typescript": "^4.9.4",
     "web-vitals": "^2.1.4"
   },
@@ -48,6 +49,7 @@
     "@types/react": "^18.0.13",
     "@types/react-dom": "^18.0.5",
     "@types/react-router-dom": "^5.3.2",
+    "@types/styled-components": "^5.1.26",
     "json-server": "^0.16.3",
     "react-scripts": "4.0.3",
     "typescript": "^4.1.2"

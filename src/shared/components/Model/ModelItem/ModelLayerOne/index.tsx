@@ -16,7 +16,7 @@ interface IModelLayerOne {
 
 const elementsDraggable = {
   'Imagen':<Imagen/>,
-  'Titulo':<Titulo/>,
+  'Titulo':<Titulo styleTitle={{fontSize:'20px', fontFamily:'Roboto'}} text='Teste'/>,
   'SubTitulo':<SubTitulo/>,
   'Texto':<Texto/>,
   'Label':<Label/>,
