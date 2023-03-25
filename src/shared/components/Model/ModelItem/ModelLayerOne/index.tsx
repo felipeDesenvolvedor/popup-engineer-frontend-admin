@@ -9,9 +9,9 @@ import { Input } from '../ModelInput';
 
 
 interface IModelLayerOne {
-  children:React.ReactNode[];
+  children:JSX.Element[] | [];
   styles?: ILayerConfig;
-  setElements:(elements:JSX.Element[]) => void;
+  setElements:React.Dispatch<React.SetStateAction<JSX.Element[]>>
 }
 
 const elementsDraggable = {
@@ -51,7 +51,7 @@ export const ModelLayerOne:React.FC<IModelLayerOne> = ({children, styles, setEle
 
   return (
     <div className='item-target' id="item-target-1" style={{...stylesProperties}} onDrop={handleDrop} onDragOver={handleDragOver} onDragEnter={handleDragEnter}>
-      <div>{children}</div>
+      <div>{children ||  <p>Nenhum elemento encontrado !</p>}</div>
     </div>
   );
 };

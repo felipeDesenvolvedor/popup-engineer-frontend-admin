@@ -35,8 +35,8 @@ const stylesArrow = {
 };
 
 interface IContainerPopUp {
-  children:React.ReactNode[];
-  setElements:(elements:JSX.Element[]) => void;
+  children:JSX.Element[] | [];
+  setElements:React.Dispatch<React.SetStateAction<JSX.Element[]>>
 }
 
 export const ContainerPopUp:React.FC<IContainerPopUp> = ({children, setElements}) => {
@@ -47,7 +47,9 @@ export const ContainerPopUp:React.FC<IContainerPopUp> = ({children, setElements}
         <Box sx={{...stylesButtonSave}}><Button variant="contained">Salvar</Button></Box>
         <Box sx={{...stylesArrow.box}}><KeyboardArrowLeftIcon style={{...stylesArrow.left}}/> <KeyboardArrowRightIcon style={{...stylesArrow.rigth}}/></Box>
 
-        {children}
+        <>
+          {children ? children : []}
+        </>
       </ModelItem>
     </>
   );

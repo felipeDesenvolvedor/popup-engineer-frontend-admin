@@ -9,6 +9,7 @@ import {config} from 'config';
 import { useNavigate } from 'react-router';
 import { ControllersModels } from 'controllers/ControllersModels';
 import { IModel } from 'interfaces/IModel';
+import { Label } from 'shared/components/Model/ModelItem/ModelLabel';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -39,9 +40,7 @@ export const Models = () => {
         <React.Fragment key={listModel.popupId}>
           <Grid item xs={4}>
             <Item onClick={() => handleRedirectModel(listModel.popupId)}>
-              <ModelItem setElements={() => console.log('')}>
-                {'color="inherit"'}
-                {listModel.popupName}
+              <ModelItem setElements={() => <Label/>}>
               </ModelItem>
             </Item>
           </Grid>

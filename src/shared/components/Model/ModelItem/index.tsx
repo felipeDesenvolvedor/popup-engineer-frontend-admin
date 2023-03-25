@@ -8,12 +8,11 @@ import CSS from 'csstype';
 
 
 interface IModeItem {
-  children?:React.ReactNode[];
-  style?:React.CSSProperties;
-  setElements:(elements:JSX.Element[]) => void;
+  children:JSX.Element[] | [];
+  setElements:React.Dispatch<React.SetStateAction<JSX.Element[]>>
 }
 
-export const ModelItem:React.FC<IModeItem> = ({children, style, setElements}) =>  {
+export const ModelItem:React.FC<IModeItem> = ({children, setElements}) =>  {
   
   const overlarDefinition: CSS.Properties = {
     height:'100%',
@@ -70,10 +69,10 @@ export const ModelItem:React.FC<IModeItem> = ({children, style, setElements}) =>
 
         <div style={{...popUpStyles.popup}}>
           <ModelLayerOne setElements={setElements} styles={{...popUpStyles.popup.layerOne}}>
-            {popUpStyles.popup.elementsInformation === 'layerOne' && <SwitchLayer />}
+            {popUpStyles.popup.elementsInformation === 'layerOne' ? children : []}
           </ModelLayerOne>
           <ModelLayerTwo styles={{...popUpStyles.popup.layerTwo}}>
-            {popUpStyles.popup.elementsInformation === 'layerTwo' && <SwitchLayer />}
+            {popUpStyles.popup.elementsInformation === 'layerTwo' ? <SwitchLayer /> : <div></div>}
           </ModelLayerTwo>
         </div>
       </Box>

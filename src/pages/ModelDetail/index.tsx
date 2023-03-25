@@ -9,8 +9,9 @@ import { Input } from 'shared/components/Model/ModelItem/ModelInput';
 
 export const ModelDetail = () => {
   const [openMenu, setOpenMenu] = useState(true);
-  const elementInitial = <Input/>;
-  const [elements, setElements] = useState<JSX.Element[]>([elementInitial]);
+  const elementInitial:JSX.Element[] = [];
+  elementInitial.push(<Input/>);
+  const [elements, setElements] = useState<JSX.Element[]>(elementInitial);
 
   const stylesModelDetail = {
     box:{
@@ -25,7 +26,7 @@ export const ModelDetail = () => {
       <Box sx={{flexGrow:'0'}}><MenuOptions /></Box>
       <Box sx={{flexGrow:'2'}}>
         <ContainerPopUp setElements={setElements}>
-          {elements}
+          {elements || []}
         </ContainerPopUp>
       </Box>
     </Box>
